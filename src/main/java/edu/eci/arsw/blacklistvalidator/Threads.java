@@ -13,6 +13,7 @@ public class Threads extends Thread {
     private int ocurrencesCount;
     private LinkedList<Integer> blackListOcurrences;
     private static final int BLACK_LIST_ALARM_COUNT = 5;
+    private int checkedListsCount;
 
     public void setInitialServer(int initialServer) {
         this.initialServer = initialServer;
@@ -29,13 +30,14 @@ public class Threads extends Thread {
     public int getOccurrencesCount() {
         return ocurrencesCount;
     }
+    public int getCheckedListsCount() {return checkedListsCount;}
 
     public void run() {
         blackListOcurrences=new LinkedList<>();
         ocurrencesCount=0;
         HostBlacklistsDataSourceFacade skds=HostBlacklistsDataSourceFacade.getInstance();
 
-        int checkedListsCount=0;
+        checkedListsCount=0;
 
         for (int i=initialServer;i<finalServer;i++){
             checkedListsCount++;

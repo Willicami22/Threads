@@ -70,6 +70,7 @@ public class HostBlackListsValidator {
         for (Threads thread : threads) {
             blackListOcurrences.addAll(thread.getBlackListOcurrences());
             ocurrencesCount += thread.getOccurrencesCount();
+            checkedListsCount += thread.getCheckedListsCount();
         }
 
         if (ocurrencesCount>=BLACK_LIST_ALARM_COUNT){
@@ -88,7 +89,5 @@ public class HostBlackListsValidator {
 
 
     private static final Logger LOG = Logger.getLogger(HostBlackListsValidator.class.getName());
-
-
 
 }
